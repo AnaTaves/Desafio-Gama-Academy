@@ -1,0 +1,139 @@
+{
+    "openapi": "3.0.0",
+  
+    "info": {
+      "title": "API do projeto de cadastro da jobsNet",
+      "description": "API que cadastra os dados do candidato no banco de dados",
+      "version": "0.0.1"
+    },
+  
+    "servers": [
+      {
+        "url": "http://localhost:3000",
+        "description": "ambiente de desenvolvimento"
+      },
+      {
+          "url": "https://jobs-net-gama-academy.herokuapp.com/",
+          "description": "ambiente de produção"
+      }
+    ],
+  
+    "paths": {
+      "/registrar": {
+        "post": {
+          "summary": "Cadastro de candidato",
+          "description": "Rota de cadastro de usuário, recebe informações pessoais como nome, email, telefone, endereço, cargo pretendido, etc.",
+          "tags": ["candidato"],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "nome": {
+                      "type": "string"
+                    },
+                    "cargo_pretendido":{
+                        "type": "string"
+                    },
+                    "data_nascimento":{
+                        "type": "string"
+                    },
+                    "estado_civil":{
+                        "type": "string"
+                    },
+                    "gênero": {
+                      "type": "string"
+                    },
+                    "logradouro": {
+                        "type": "string"
+                      },
+                    "cep": {
+                      "type": "string"
+                    },
+                    "bairro": {
+                        "type": "string"
+                      },
+                    "número": {
+                        "type": "string"
+                        },
+                    "cidade": {
+                        "type": "string"
+                      },
+                    "estado": {
+                        "type": "string"
+                      },
+                    "telefone_fixo_1": {
+                        "type": "string"
+                      },
+                    "telefone_fixo_2": {
+                        "type": "string"
+                      },
+                    "celular": {
+                        "type": "string"
+                      }, 
+                    "contato": {
+                        "type": "string"
+                      },   
+                    "email": {
+                      "type": "string"
+                    },
+                    "cpf": {
+                        "type": "string"
+                      },
+                     "rg": {
+                        "type": "string"
+                      },
+                    "possui_veiculo": {
+                        "type": "boolean"
+                      },
+                    "tipo_habilitação": {
+                        "type": "string"
+                      }  
+                        
+                  }
+                },
+                "examples": {
+                  "candidato": {
+                    "value": {
+                      "name": "Ana Cláudia",
+                      "cargo_pretendido": "Front end developer",
+                      "data_nascimento": "00/00/0000",
+                      "estado_civil": "Solteira",
+                      "gênero": "Feminino",
+                      "logradouro": "Rua A",
+                      "cep": "00000-000",
+                      "bairro": "Jardins",
+                      "número": "000",
+                      "cidade": "Goiânia",
+                      "estado": "Goiás",
+                      "telefone_fixo_1": "1234-5678",
+                      "telefone_fixo_2": "5678-1234",
+                      "celular": "999999999",
+                      "contato": "Ana",
+                      "email": "pasoc51811@drlatvia.com",
+                      "cpf": "000000000-00",
+                      "rg": "00000000",
+                      "possui_veiculo": true,
+                      "tipo_habilitação": "Categoria A"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/":{
+        "get":{
+            "summary": "Início",
+            "description": "Retorna a web page",
+            "produces":["text/html"],
+            "responses":{
+                "200":{
+                  "description":"Bem-vindo!"
+                }
+              }
+      }
+    }
+  }
+}  
